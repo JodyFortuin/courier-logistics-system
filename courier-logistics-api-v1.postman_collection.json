@@ -1,0 +1,262 @@
+{
+	"info": {
+		"_postman_id": "d781d7d0-ca59-42d6-9979-40dd337b33d2",
+		"name": "courier-logistics-api-v1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38037577"
+	},
+	"item": [
+		{
+			"name": "createShipment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"driverId\": 0,\n    // \"vehicleId\": 0,\n    \"deliveryLocationId\": 0,\n    \"dateDue\": \"2024-09-01T10:58:11.119765\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/createShipment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"createShipment"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Ex ShipmentResponse",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"deliveryLocationId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/createShipment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"createShipment"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 05 Sep 2024 09:22:41 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"referenceId\": \"970a94ff-bc70-477c-a8b9-81f6f58a037f\",\n    \"driver\": \"Jack\",\n    \"deliveryLocation\": \"City Bowl\",\n    \"dateLogged\": \"2024-09-05T11:22:41.709636\",\n    \"dateDue\": \"2024-09-08T11:22:41.709654\"\n}"
+				}
+			]
+		},
+		{
+			"name": "updateShipment",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"driverId\": 2,\n    \"deliveryLocationId\": 2\n}\n//driverId and deliveryLocation are optional, so 1 or both can be sent",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/updateShipment/{referenceId}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"updateShipment",
+						"{referenceId}"
+					]
+				},
+				"description": "driverId and deliveryLocation are option, so 1 or both can be sent"
+			},
+			"response": []
+		},
+		{
+			"name": "updateShipmentTracking",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"currentLocationId\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/updateShipmentTracking/{referenceId}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"updateShipmentTracking",
+						"{referenceId}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateShipmentStatus",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\":\"DELIVERED\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/updateShipmentStatus/{referenceId}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"updateShipmentStatus",
+						"{referenceId}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "trackShipment",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/trackShipment/{referenceId}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"trackShipment",
+						"{referenceId}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Ex TrackShipmentResponse",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/trackShipment/{referenceId}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"trackShipment",
+								"{referenceId}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 05 Sep 2024 09:24:01 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"driver\": \"Jack\",\n    \"currentLocation\": \"Southern Suburbs\"\n}"
+				}
+			]
+		}
+	]
+}
