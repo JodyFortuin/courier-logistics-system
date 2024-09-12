@@ -18,11 +18,6 @@ public class ShipmentService {
         UUID referenceId = UUID.randomUUID();
         LocalDateTime dateLogged = LocalDateTime.now();
         LocalDateTime dateDue = LocalDateTime.now().plusDays(3);
-        //logic: query drivers/tracking *
-        // driver closest to the warehouse that has capacity
-        // set capacity -1
-        // max capacity 20
-        // lower location index = closer to city bowl
         List<TrackingDataResponse> list = shipmentRepository.getAllDriverTracking();
         System.out.print("print list" + list);
         int distance = list.size() -1;
